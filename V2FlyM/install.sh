@@ -1,25 +1,29 @@
 #!/bin/sh
 
-#  launch.sh
+#  install.sh
 #  V2FlyM
 #
 #  Created by silly b on 2021/2/17.
 #  
-#echo `dirname "${BASH_SOURCE[0]}"`
-#ls
-#pwd
 
 dir="$HOME/Library/Application Support/V2FlyM"
+echo "$dir/proxy_conf"
+
 if [ ! -d "$dir" ];then
 sudo mkdir -p "$dir"
-echo "make dir V2FlyM success"
+echo "mkdir V2FlyM"
 else
 echo "V2FlyM exists"
 fi
 
 cd `dirname "${BASH_SOURCE[0]}"`
-#sudo \cp -v com.v2flym.v2ray-core.plist "/Users/sillyb/Library/Application Support/V2FlyM/"
+sudo \cp -fv proxy_conf "$dir"
 sudo \cp -rfv v2ray-core "$dir"
-sudo \cp -fv config.json "$dir"
 
-sudo chmod -R 755 "$dir"
+sudo chown root:admin "$dir/proxy_conf"
+sudo chmod a+rx "$dir/proxy_conf"
+sudo chmod +s "$dir/proxy_conf"
+
+echo "$dir/proxy_conf"
+
+#sudo chmod -R 755 "$dir"

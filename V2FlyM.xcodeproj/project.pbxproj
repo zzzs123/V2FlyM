@@ -8,17 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		3904298225DEBFE500B9B539 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3904298125DEBFE500B9B539 /* main.swift */; };
-		39107A7F25DD24AD00A1DC4B /* launch.sh in Resources */ = {isa = PBXBuildFile; fileRef = 39107A7E25DD24AD00A1DC4B /* launch.sh */; };
+		39107A7F25DD24AD00A1DC4B /* install.sh in Resources */ = {isa = PBXBuildFile; fileRef = 39107A7E25DD24AD00A1DC4B /* install.sh */; };
 		39107A8625DD252500A1DC4B /* v2ray-core in Resources */ = {isa = PBXBuildFile; fileRef = 39107A8525DD252500A1DC4B /* v2ray-core */; };
 		39107ACA25DD711F00A1DC4B /* PreferenceWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39107AC925DD711F00A1DC4B /* PreferenceWindowController.swift */; };
 		39107ACE25DD719800A1DC4B /* PreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39107ACD25DD719800A1DC4B /* PreferenceViewController.swift */; };
+		3924D9CD25E00329005BEA87 /* proxy_conf in Resources */ = {isa = PBXBuildFile; fileRef = 3904297F25DEBFE500B9B539 /* proxy_conf */; };
+		3924D9DD25E00662005BEA87 /* V2rayMgr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3924D9DC25E00662005BEA87 /* V2rayMgr.swift */; };
 		39E8622C25D53D5D00A9A241 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E8622B25D53D5D00A9A241 /* AppDelegate.swift */; };
-		39E8622E25D53D5D00A9A241 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E8622D25D53D5D00A9A241 /* ContentView.swift */; };
 		39E8623025D53D5D00A9A241 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39E8622F25D53D5D00A9A241 /* Assets.xcassets */; };
 		39E8623325D53D5D00A9A241 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39E8623225D53D5D00A9A241 /* Preview Assets.xcassets */; };
 		39E8623625D53D5D00A9A241 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39E8623425D53D5D00A9A241 /* Main.storyboard */; };
 		A86DD06CA2304B1FE869FDE9 /* Pods_V2FlyM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8957840FD15712AA50C0AC3 /* Pods_V2FlyM.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3924D9C325E002B8005BEA87 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 39E8622025D53D5D00A9A241 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3904297E25DEBFE500B9B539;
+			remoteInfo = proxy_conf;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		3904297D25DEBFE500B9B539 /* CopyFiles */ = {
@@ -35,13 +46,13 @@
 /* Begin PBXFileReference section */
 		3904297F25DEBFE500B9B539 /* proxy_conf */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = proxy_conf; sourceTree = BUILT_PRODUCTS_DIR; };
 		3904298125DEBFE500B9B539 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		39107A7E25DD24AD00A1DC4B /* launch.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = launch.sh; sourceTree = "<group>"; };
+		39107A7E25DD24AD00A1DC4B /* install.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = install.sh; sourceTree = "<group>"; };
 		39107A8525DD252500A1DC4B /* v2ray-core */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "v2ray-core"; sourceTree = "<group>"; };
 		39107AC925DD711F00A1DC4B /* PreferenceWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceWindowController.swift; sourceTree = "<group>"; };
 		39107ACD25DD719800A1DC4B /* PreferenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceViewController.swift; sourceTree = "<group>"; };
+		3924D9DC25E00662005BEA87 /* V2rayMgr.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = V2rayMgr.swift; sourceTree = "<group>"; };
 		39E8622825D53D5D00A9A241 /* V2FlyM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = V2FlyM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39E8622B25D53D5D00A9A241 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		39E8622D25D53D5D00A9A241 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		39E8622F25D53D5D00A9A241 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		39E8623225D53D5D00A9A241 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		39E8623525D53D5D00A9A241 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -103,10 +114,10 @@
 			isa = PBXGroup;
 			children = (
 				39E8622B25D53D5D00A9A241 /* AppDelegate.swift */,
-				39E8622D25D53D5D00A9A241 /* ContentView.swift */,
+				3924D9DC25E00662005BEA87 /* V2rayMgr.swift */,
 				39107AC925DD711F00A1DC4B /* PreferenceWindowController.swift */,
 				39107ACD25DD719800A1DC4B /* PreferenceViewController.swift */,
-				39107A7E25DD24AD00A1DC4B /* launch.sh */,
+				39107A7E25DD24AD00A1DC4B /* install.sh */,
 				39107A8525DD252500A1DC4B /* v2ray-core */,
 				39E8622F25D53D5D00A9A241 /* Assets.xcassets */,
 				39E8623425D53D5D00A9A241 /* Main.storyboard */,
@@ -175,6 +186,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				3924D9C425E002B8005BEA87 /* PBXTargetDependency */,
 			);
 			name = V2FlyM;
 			productName = V2FlyM;
@@ -222,8 +234,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3924D9CD25E00329005BEA87 /* proxy_conf in Resources */,
 				39E8623625D53D5D00A9A241 /* Main.storyboard in Resources */,
-				39107A7F25DD24AD00A1DC4B /* launch.sh in Resources */,
+				39107A7F25DD24AD00A1DC4B /* install.sh in Resources */,
 				39107A8625DD252500A1DC4B /* v2ray-core in Resources */,
 				39E8623325D53D5D00A9A241 /* Preview Assets.xcassets in Resources */,
 				39E8623025D53D5D00A9A241 /* Assets.xcassets in Resources */,
@@ -289,12 +302,20 @@
 			files = (
 				39107ACE25DD719800A1DC4B /* PreferenceViewController.swift in Sources */,
 				39107ACA25DD711F00A1DC4B /* PreferenceWindowController.swift in Sources */,
-				39E8622E25D53D5D00A9A241 /* ContentView.swift in Sources */,
 				39E8622C25D53D5D00A9A241 /* AppDelegate.swift in Sources */,
+				3924D9DD25E00662005BEA87 /* V2rayMgr.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3924D9C425E002B8005BEA87 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3904297E25DEBFE500B9B539 /* proxy_conf */;
+			targetProxy = 3924D9C325E002B8005BEA87 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		39E8623425D53D5D00A9A241 /* Main.storyboard */ = {
