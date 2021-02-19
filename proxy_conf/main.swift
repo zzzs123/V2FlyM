@@ -64,3 +64,13 @@ if authRef == nil {
     exit(EXIT_SUCCESS)
 }
 
+let pref = SCPreferencesCreateWithAuthorization(kCFAllocatorDefault, "V2FlyM" as CFString, nil, authRef)!
+let plists = SCPreferencesGetValue(pref, kSCPrefNetworkServices)!
+
+var proxies = [
+    kCFNetworkProxiesHTTPEnable: 0,
+    kCFNetworkProxiesHTTPSEnable: 0,
+    kCFNetworkProxiesProxyAutoConfigEnable: 0,
+    kCFNetworkProxiesSOCKSEnable: 0,
+    kCFNetworkProxiesExceptionsList: [],
+] as [CFString : Any]
