@@ -44,8 +44,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if v2rayMgr.install() == false {
             NSApp.terminate(nil)
         }
-
-        statusItem.button?.title = "M"
+        self.statusItem.button?.imageHugsTitle = false
+        self.statusItem.button?.imagePosition = .imageLeading
 
         flagItem.isEnabled = false
         modeItem.isEnabled = false
@@ -63,20 +63,25 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         statusItem.menu = menu
 
         toggleV2ray.observe(on: MainScheduler.asyncInstance).subscribe(onNext: { [weak self] isLoad in
-            self?.v2rayMgr.unload()
+            guard let self = self else { return }
+            self.v2rayMgr.unload()
             if isLoad {
-                self?.v2rayMgr.load()
+                self.v2rayMgr.load()
             }
 
-            self?.flagItem.title = isLoad ? "Connected" : "Not Connected"
-            self?.flagItem.state = isLoad ? .on : .off
-            self?.toggleItem.title = isLoad ? "Disconnect" : "Connect"
+            self.flagItem.title = isLoad ? "Connected" : "Not Connected"
+            self.flagItem.state = isLoad ? .on : .off
+            self.toggleItem.title = isLoad ? "Disconnect" : "Connect"
+            
+            self.statusItem.button?.image = isLoad ? NSImage(named: "status_bar_on") : NSImage(named: "status_bar_off")
         }).disposed(by: disposeBag)
 
         currentMode.observe(on: MainScheduler.asyncInstance).subscribe(onNext: { [weak self] mode in
             self?.configItem.state = mode == .config ? .on : .off
             self?.proxyItem.state = mode == .proxy ? .on : .off
             self?.directItem.state = mode == .direct ? .on : .off
+            
+            self?.statusItem.button?.title = mode.rawValue
         }).disposed(by: disposeBag)
     }
 
