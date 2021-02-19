@@ -6,7 +6,6 @@
 //
 
 import Cocoa
-//import SwiftUI
 import RxSwift
 import RxCocoa
 import SystemConfiguration
@@ -14,17 +13,14 @@ import SystemConfiguration
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-//    var window: NSWindow!
-
-    let statusItem = NSStatusBar.system.statusItem(withLength: 20)
+    let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
 
     let disposeBag = DisposeBag()
-    let loaded = BehaviorSubject(value: false)
+    let coreLoaded = BehaviorSubject(value: false)
     
     var coreProcess: Process?
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // Create the SwiftUI view that provides the window contents.
         
         statusItem.button?.title = "M"
         
@@ -32,21 +28,26 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let flagItem = NSMenuItem(title: "", action: nil, keyEquivalent: "")
         flagItem.state = .off
         let loadItem = NSMenuItem(title: "", action: #selector(load), keyEquivalent: "")
+        
+        let separator = NSMenuItem.separator()
+
         let quitItem = NSMenuItem(title: "Quit", action: #selector(quit), keyEquivalent: "")
         
         let installItem = NSMenuItem(title: "Install", action: #selector(install), keyEquivalent: "")
         
         let proxyItem = NSMenuItem(title: "Set Proxy", action: #selector(setProxy), keyEquivalent: "")
+        proxyItem.state = .on
 
-        menu.items.append(installItem)
         menu.items.append(flagItem)
         menu.items.append(loadItem)
+        menu.items.append(separator)
         menu.items.append(proxyItem)
         menu.items.append(quitItem)
+        menu.items.append(installItem)
 
         statusItem.menu = menu
 
-        loaded.asObservable().observe(on: MainScheduler.asyncInstance).subscribe(onNext: { v in
+        coreLoaded.asObservable().observe(on: MainScheduler.asyncInstance).subscribe(onNext: { v in
             flagItem.title = v ? "loaded" : "unloaded"
             loadItem.title = v ? "Unload" : "Load"
         }).disposed(by: disposeBag)
@@ -71,8 +72,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @objc func load() {
-        guard let isLoaded = try? loaded.value() else { return }
-        loaded.onNext(!isLoaded)
+        guard let isLoaded = try? coreLoaded.value() else { return }
+        coreLoaded.onNext(!isLoaded)
         if isLoaded {
             unload()
         } else {

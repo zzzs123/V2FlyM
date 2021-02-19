@@ -8,10 +8,9 @@
 import Foundation
 import SystemConfiguration
 
-let processInfo = ProcessInfo.processInfo
-print("ProcessInfo.arguments: \(processInfo.arguments)")
-
-print("CommandLine.arguments: \(CommandLine.arguments)")
+//let processInfo = ProcessInfo.processInfo
+//print("ProcessInfo.arguments: \(processInfo.arguments)")
+//print("CommandLine.arguments: \(CommandLine.arguments)")
 //    ➜  Debug ./proxy_conf
 //    ProcessInfo.arguments: ["/Users/sillyb/Library/Developer/Xcode/DerivedData/V2FlyM-advtynsgkqfgvaftmfktvgoyrbct/Build/Products/Debug/proxy_conf"]
 //    CommandLine.arguments: ["./proxy_conf"]
@@ -43,6 +42,7 @@ if arguments.contains(where: { $0 == "--help" || $0 == "-h" }) {
 }
 
 if arguments.count < 4 {
+    print("arguments count less than 4")
     exit(EXIT_SUCCESS)
 }
 
@@ -50,7 +50,7 @@ if arguments.count < 4 {
 let mode = arguments.first
 let pacURL = arguments[1]
 let httpPort = arguments[2]
-let sockPort = arguments.last
+let socksPort = arguments.last
 
 var authRef: AuthorizationRef?
 let authFlags: AuthorizationFlags = [.interactionAllowed, .extendRights, .preAuthorize]
@@ -64,8 +64,8 @@ if authRef == nil {
     exit(EXIT_SUCCESS)
 }
 
-let pref = SCPreferencesCreateWithAuthorization(kCFAllocatorDefault, "V2FlyM" as CFString, nil, authRef)!
-let plists = SCPreferencesGetValue(pref, kSCPrefNetworkServices)!
+let prefs = SCPreferencesCreateWithAuthorization(kCFAllocatorDefault, "V2FlyM" as CFString, nil, authRef)!
+let plists = SCPreferencesGetValue(prefs, kSCPrefNetworkServices) as! Dictionary<CFString, AnyObject>
 
 var proxies = [
     kCFNetworkProxiesHTTPEnable: 0,
@@ -74,3 +74,44 @@ var proxies = [
     kCFNetworkProxiesSOCKSEnable: 0,
     kCFNetworkProxiesExceptionsList: [],
 ] as [CFString : Any]
+
+for (key, val) in plists {
+    if let hardware = val.value(forKeyPath: "Interface.Hardware") as? String, ["AirPort", "Wi-Fi", "Ethernet"].contains(hardware) {
+        let prefsPath = "/\(kSCPrefNetworkServices)/\(key)/\(kSCEntNetProxies)" as CFString
+        print("prefsPath: \(prefsPath)")
+        if mode == "config" {
+            proxies[kCFNetworkProxiesProxyAutoConfigURLString] = pacURL
+            proxies[kCFNetworkProxiesProxyAutoConfigEnable] = 1
+            SCPreferencesPathSetValue(prefs, prefsPath, proxies as CFDictionary)
+        } else if mode == "proxy" {
+            proxies[kCFNetworkProxiesSOCKSProxy] = "127.0.0.1" //socks5ListenAddress
+            proxies[kCFNetworkProxiesSOCKSPort] = socksPort
+            proxies[kCFNetworkProxiesSOCKSEnable] = 1
+
+            proxies[kCFNetworkProxiesHTTPProxy] = "127.0.0.1"
+            proxies[kCFNetworkProxiesHTTPPort] = httpPort
+            proxies[kCFNetworkProxiesHTTPEnable] = 1
+
+            proxies[kCFNetworkProxiesHTTPSProxy] = "127.0.0.1"
+            proxies[kCFNetworkProxiesHTTPSPort] = httpPort
+            proxies[kCFNetworkProxiesHTTPSEnable] = 1
+
+            SCPreferencesPathSetValue(prefs, prefsPath, proxies as CFDictionary)
+        } else if mode == "direct" {
+            SCPreferencesPathSetValue(prefs, prefsPath, proxies as CFDictionary)
+
+            print("没写呢")
+            exit(EXIT_SUCCESS)
+        }
+        
+        SCPreferencesCommitChanges(prefs);
+        SCPreferencesApplyChanges(prefs);
+        SCPreferencesSynchronize(prefs);
+
+        print("set mode: \(String(describing: mode))")
+        
+        exit(EXIT_SUCCESS)
+    }
+
+}
+
