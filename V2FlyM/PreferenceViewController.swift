@@ -11,6 +11,7 @@ class PreferenceViewController: NSViewController {
 
     @IBOutlet weak var tableView: NSTableView!
     
+    @IBOutlet weak var rightView: NSView!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
@@ -26,13 +27,14 @@ extension PreferenceViewController: NSTableViewDelegate, NSTableViewDataSource {
 
   func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
     return [
-        //      "image": viewControllers[at: row]?.preferenceTabImage,
+        "image": NSImage(),
         "title": "TTTTTTT"
     ] as [String: Any?]
   }
 
   func tableViewSelectionDidChange(_ notification: Notification) {
-    
+    let xx = ImportScene()
+    rightView.addSubview(xx.view)
   }
 
 }
