@@ -14,6 +14,28 @@
 		39107ACE25DD719800A1DC4B /* PreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39107ACD25DD719800A1DC4B /* PreferenceViewController.swift */; };
 		3924D9CD25E00329005BEA87 /* proxy_conf in Resources */ = {isa = PBXBuildFile; fileRef = 3904297F25DEBFE500B9B539 /* proxy_conf */; };
 		3924D9DD25E00662005BEA87 /* V2rayMgr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3924D9DC25E00662005BEA87 /* V2rayMgr.swift */; };
+		39E63D5225E28FE000B4EDA1 /* Mux.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E63D3C25E28FE000B4EDA1 /* Mux.swift */; };
+		39E63D5325E28FE000B4EDA1 /* WsSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E63D3D25E28FE000B4EDA1 /* WsSettings.swift */; };
+		39E63D5425E28FE000B4EDA1 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E63D3E25E28FE000B4EDA1 /* Users.swift */; };
+		39E63D5525E28FE000B4EDA1 /* KcpSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E63D3F25E28FE000B4EDA1 /* KcpSettings.swift */; };
+		39E63D5625E28FE000B4EDA1 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E63D4025E28FE000B4EDA1 /* Log.swift */; };
+		39E63D5725E28FE000B4EDA1 /* Dns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E63D4125E28FE000B4EDA1 /* Dns.swift */; };
+		39E63D5825E28FE000B4EDA1 /* HttpSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E63D4225E28FE000B4EDA1 /* HttpSettings.swift */; };
+		39E63D5925E28FE000B4EDA1 /* Inbounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E63D4325E28FE000B4EDA1 /* Inbounds.swift */; };
+		39E63D5A25E28FE000B4EDA1 /* Headers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E63D4425E28FE000B4EDA1 /* Headers.swift */; };
+		39E63D5B25E28FE000B4EDA1 /* Vnext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E63D4525E28FE000B4EDA1 /* Vnext.swift */; };
+		39E63D5C25E28FE000B4EDA1 /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E63D4625E28FE000B4EDA1 /* Server.swift */; };
+		39E63D5D25E28FE000B4EDA1 /* QuicSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E63D4725E28FE000B4EDA1 /* QuicSettings.swift */; };
+		39E63D5E25E28FE000B4EDA1 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E63D4825E28FE000B4EDA1 /* Header.swift */; };
+		39E63D5F25E28FE000B4EDA1 /* StreamSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E63D4925E28FE000B4EDA1 /* StreamSettings.swift */; };
+		39E63D6025E28FE000B4EDA1 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E63D4A25E28FE000B4EDA1 /* Settings.swift */; };
+		39E63D6125E28FE000B4EDA1 /* Rules.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E63D4B25E28FE000B4EDA1 /* Rules.swift */; };
+		39E63D6225E28FE000B4EDA1 /* Outbounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E63D4C25E28FE000B4EDA1 /* Outbounds.swift */; };
+		39E63D6325E28FE000B4EDA1 /* Routing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E63D4D25E28FE000B4EDA1 /* Routing.swift */; };
+		39E63D6425E28FE000B4EDA1 /* Sockopt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E63D4E25E28FE000B4EDA1 /* Sockopt.swift */; };
+		39E63D6525E28FE000B4EDA1 /* TcpSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E63D4F25E28FE000B4EDA1 /* TcpSettings.swift */; };
+		39E63D6625E28FE000B4EDA1 /* TlsSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E63D5025E28FE000B4EDA1 /* TlsSettings.swift */; };
+		39E63D6725E28FE000B4EDA1 /* DsSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E63D5125E28FE000B4EDA1 /* DsSettings.swift */; };
 		39E8622C25D53D5D00A9A241 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E8622B25D53D5D00A9A241 /* AppDelegate.swift */; };
 		39E8623025D53D5D00A9A241 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39E8622F25D53D5D00A9A241 /* Assets.xcassets */; };
 		39E8623325D53D5D00A9A241 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39E8623225D53D5D00A9A241 /* Preview Assets.xcassets */; };
@@ -53,6 +75,29 @@
 		39107AC925DD711F00A1DC4B /* PreferenceWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceWindowController.swift; sourceTree = "<group>"; };
 		39107ACD25DD719800A1DC4B /* PreferenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceViewController.swift; sourceTree = "<group>"; };
 		3924D9DC25E00662005BEA87 /* V2rayMgr.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = V2rayMgr.swift; sourceTree = "<group>"; };
+		39E63D3C25E28FE000B4EDA1 /* Mux.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mux.swift; sourceTree = "<group>"; };
+		39E63D3D25E28FE000B4EDA1 /* WsSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WsSettings.swift; sourceTree = "<group>"; };
+		39E63D3E25E28FE000B4EDA1 /* Users.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
+		39E63D3F25E28FE000B4EDA1 /* KcpSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KcpSettings.swift; sourceTree = "<group>"; };
+		39E63D4025E28FE000B4EDA1 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		39E63D4125E28FE000B4EDA1 /* Dns.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dns.swift; sourceTree = "<group>"; };
+		39E63D4225E28FE000B4EDA1 /* HttpSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpSettings.swift; sourceTree = "<group>"; };
+		39E63D4325E28FE000B4EDA1 /* Inbounds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Inbounds.swift; sourceTree = "<group>"; };
+		39E63D4425E28FE000B4EDA1 /* Headers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Headers.swift; sourceTree = "<group>"; };
+		39E63D4525E28FE000B4EDA1 /* Vnext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vnext.swift; sourceTree = "<group>"; };
+		39E63D4625E28FE000B4EDA1 /* Server.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
+		39E63D4725E28FE000B4EDA1 /* QuicSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuicSettings.swift; sourceTree = "<group>"; };
+		39E63D4825E28FE000B4EDA1 /* Header.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
+		39E63D4925E28FE000B4EDA1 /* StreamSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamSettings.swift; sourceTree = "<group>"; };
+		39E63D4A25E28FE000B4EDA1 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		39E63D4B25E28FE000B4EDA1 /* Rules.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rules.swift; sourceTree = "<group>"; };
+		39E63D4C25E28FE000B4EDA1 /* Outbounds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Outbounds.swift; sourceTree = "<group>"; };
+		39E63D4D25E28FE000B4EDA1 /* Routing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Routing.swift; sourceTree = "<group>"; };
+		39E63D4E25E28FE000B4EDA1 /* Sockopt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sockopt.swift; sourceTree = "<group>"; };
+		39E63D4F25E28FE000B4EDA1 /* TcpSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TcpSettings.swift; sourceTree = "<group>"; };
+		39E63D5025E28FE000B4EDA1 /* TlsSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TlsSettings.swift; sourceTree = "<group>"; };
+		39E63D5125E28FE000B4EDA1 /* DsSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DsSettings.swift; sourceTree = "<group>"; };
+		39E63D6A25E2927B00B4EDA1 /* template.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = template.json; sourceTree = "<group>"; };
 		39E8622825D53D5D00A9A241 /* V2FlyM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = V2FlyM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39E8622B25D53D5D00A9A241 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		39E8622F25D53D5D00A9A241 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -94,6 +139,35 @@
 			path = proxy_conf;
 			sourceTree = "<group>";
 		};
+		39E63D3B25E28FE000B4EDA1 /* ServerMapper */ = {
+			isa = PBXGroup;
+			children = (
+				39E63D3C25E28FE000B4EDA1 /* Mux.swift */,
+				39E63D3D25E28FE000B4EDA1 /* WsSettings.swift */,
+				39E63D3E25E28FE000B4EDA1 /* Users.swift */,
+				39E63D3F25E28FE000B4EDA1 /* KcpSettings.swift */,
+				39E63D4025E28FE000B4EDA1 /* Log.swift */,
+				39E63D4125E28FE000B4EDA1 /* Dns.swift */,
+				39E63D4225E28FE000B4EDA1 /* HttpSettings.swift */,
+				39E63D4325E28FE000B4EDA1 /* Inbounds.swift */,
+				39E63D4425E28FE000B4EDA1 /* Headers.swift */,
+				39E63D4525E28FE000B4EDA1 /* Vnext.swift */,
+				39E63D4625E28FE000B4EDA1 /* Server.swift */,
+				39E63D4725E28FE000B4EDA1 /* QuicSettings.swift */,
+				39E63D4825E28FE000B4EDA1 /* Header.swift */,
+				39E63D4925E28FE000B4EDA1 /* StreamSettings.swift */,
+				39E63D4A25E28FE000B4EDA1 /* Settings.swift */,
+				39E63D4B25E28FE000B4EDA1 /* Rules.swift */,
+				39E63D4C25E28FE000B4EDA1 /* Outbounds.swift */,
+				39E63D4D25E28FE000B4EDA1 /* Routing.swift */,
+				39E63D4E25E28FE000B4EDA1 /* Sockopt.swift */,
+				39E63D4F25E28FE000B4EDA1 /* TcpSettings.swift */,
+				39E63D5025E28FE000B4EDA1 /* TlsSettings.swift */,
+				39E63D5125E28FE000B4EDA1 /* DsSettings.swift */,
+			);
+			path = ServerMapper;
+			sourceTree = "<group>";
+		};
 		39E8621F25D53D5D00A9A241 = {
 			isa = PBXGroup;
 			children = (
@@ -117,12 +191,14 @@
 		39E8622A25D53D5D00A9A241 /* V2FlyM */ = {
 			isa = PBXGroup;
 			children = (
+				39E63D3B25E28FE000B4EDA1 /* ServerMapper */,
 				39E8622B25D53D5D00A9A241 /* AppDelegate.swift */,
 				3924D9DC25E00662005BEA87 /* V2rayMgr.swift */,
 				39107AC925DD711F00A1DC4B /* PreferenceWindowController.swift */,
 				39107ACD25DD719800A1DC4B /* PreferenceViewController.swift */,
 				E19020A225E1136D00F6AF28 /* ImportScene.swift */,
 				E19020A325E1136D00F6AF28 /* ImportScene.xib */,
+				39E63D6A25E2927B00B4EDA1 /* template.json */,
 				39107A7E25DD24AD00A1DC4B /* install.sh */,
 				39107A8525DD252500A1DC4B /* v2ray-core */,
 				39E8622F25D53D5D00A9A241 /* Assets.xcassets */,
@@ -307,10 +383,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39E63D5925E28FE000B4EDA1 /* Inbounds.swift in Sources */,
+				39E63D5725E28FE000B4EDA1 /* Dns.swift in Sources */,
+				39E63D6525E28FE000B4EDA1 /* TcpSettings.swift in Sources */,
+				39E63D5F25E28FE000B4EDA1 /* StreamSettings.swift in Sources */,
+				39E63D5525E28FE000B4EDA1 /* KcpSettings.swift in Sources */,
+				39E63D5425E28FE000B4EDA1 /* Users.swift in Sources */,
+				39E63D6725E28FE000B4EDA1 /* DsSettings.swift in Sources */,
+				39E63D6225E28FE000B4EDA1 /* Outbounds.swift in Sources */,
+				39E63D6325E28FE000B4EDA1 /* Routing.swift in Sources */,
+				39E63D6125E28FE000B4EDA1 /* Rules.swift in Sources */,
+				39E63D5625E28FE000B4EDA1 /* Log.swift in Sources */,
+				39E63D5225E28FE000B4EDA1 /* Mux.swift in Sources */,
+				39E63D5A25E28FE000B4EDA1 /* Headers.swift in Sources */,
 				E19020A425E1136D00F6AF28 /* ImportScene.swift in Sources */,
+				39E63D5D25E28FE000B4EDA1 /* QuicSettings.swift in Sources */,
+				39E63D5825E28FE000B4EDA1 /* HttpSettings.swift in Sources */,
+				39E63D5E25E28FE000B4EDA1 /* Header.swift in Sources */,
 				39107ACE25DD719800A1DC4B /* PreferenceViewController.swift in Sources */,
 				39107ACA25DD711F00A1DC4B /* PreferenceWindowController.swift in Sources */,
+				39E63D6025E28FE000B4EDA1 /* Settings.swift in Sources */,
 				39E8622C25D53D5D00A9A241 /* AppDelegate.swift in Sources */,
+				39E63D6425E28FE000B4EDA1 /* Sockopt.swift in Sources */,
+				39E63D5B25E28FE000B4EDA1 /* Vnext.swift in Sources */,
+				39E63D5325E28FE000B4EDA1 /* WsSettings.swift in Sources */,
+				39E63D5C25E28FE000B4EDA1 /* Server.swift in Sources */,
+				39E63D6625E28FE000B4EDA1 /* TlsSettings.swift in Sources */,
 				3924D9DD25E00662005BEA87 /* V2rayMgr.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

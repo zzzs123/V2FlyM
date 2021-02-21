@@ -1,0 +1,129 @@
+{
+    "log": {
+        "access": "",
+        "error": "",
+        "loglevel": "none"
+    },
+    "dns": {
+        "servers": [
+            "localhost"
+        ]
+    },
+    "routing": {
+        "domainStrategy": "AsIs",
+        "rules": [
+            {
+                "type": "field",
+                "port": "0-65535",
+                "outboundTag": "direct"
+            }
+        ]
+    },
+    "inbounds": [
+        {
+            "listen": "127.0.0.1",
+            "port": 1081,
+            "protocol": "socks",
+            "settings": {
+                "auth": "noauth",
+                "udp": false,
+                "ip": "127.0.0.1"
+            },
+            "tag": "socksinbound"
+        },
+        {
+            "listen": "127.0.0.1",
+            "port": 8001,
+            "protocol": "http",
+            "settings": {
+                "timeout": 0
+            },
+            "tag": "httpinbound"
+        }
+    ],
+    "outbounds": [
+        {
+            "sendThrough": "0.0.0.0",
+            "protocol": "vmess",
+            "settings": {
+                "vnext": [
+                    {
+                        "address": "11.22.11.111",
+                        "port": 37192,
+                        "users": [
+                            {
+                                "id": "27848739-7e62-4138-9fd3-098a63964b6b",
+                                "alterId": 0,
+                                "security": "auto",
+                                "level": 0
+                            }
+                        ]
+                    }
+                ]
+            },
+            "tag": "server",
+            "streamSettings": {
+                "network": "tcp",
+                "security": "none",
+                "tlsSettings": {
+                    "serverName": "",
+                    "allowInsecure": false,
+                    "alpn": [
+                        "h2",
+                        "http/1.1"
+                    ],
+                    "certificates": [],
+                    "disableSystemRoot": false
+                },
+                "tcpSettings": {
+                    "acceptProxyProtocol": false,
+                    "header": {
+                        "type": "none"
+                    }
+                },
+                "kcpSettings": {
+                    "mtu": 1350,
+                    "tti": 20,
+                    "uplinkCapacity": 5,
+                    "downlinkCapacity": 20,
+                    "congestion": false,
+                    "readBufferSize": 1,
+                    "writeBufferSize": 1,
+                    "header": {
+                        "type": "none"
+                    }
+                },
+                "wsSettings": {
+                    "acceptProxyProtocol": false,
+                    "path": "/",
+                    "headers": {
+                        "Host": ""
+                    }
+                },
+                "httpSettings": {
+                    "host": [
+                        ""
+                    ],
+                    "path": "/"
+                },
+                "quicSettings": {
+                    "security": "none",
+                    "key": "",
+                    "header": {
+                        "type": "none"
+                    }
+                },
+                "dsSettings": {
+                    "path": "/path/to/ds/file",
+                    "abstract": false,
+                    "padding": false
+                },
+                "sockopt": {}
+            },
+            "mux": {
+                "enabled": false,
+                "concurrency": 8
+            }
+        }
+    ]
+}

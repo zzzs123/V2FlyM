@@ -21,5 +21,6 @@ target 'V2FlyM' do
   # Pods for V2FlyM (macOS)
   pod 'RxSwift', '6.1.0'
   pod 'RxCocoa', '6.1.0'
-
+  pod 'ObjectMapper'
+  
 end

@@ -6,6 +6,7 @@
 //
 
 import Cocoa
+import ObjectMapper
 
 class ImportScene: NSViewController {
 
@@ -41,6 +42,11 @@ class ImportSceneView: NSView {
     
     override func draggingEntered(_ sender: NSDraggingInfo) -> NSDragOperation {
         print("drag enter")
-        return .link
+        
+        return .copy
+    }
+    
+    override func draggingEnded(_ sender: NSDraggingInfo) {
+
     }
 }
