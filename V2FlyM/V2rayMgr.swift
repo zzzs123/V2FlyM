@@ -6,6 +6,7 @@
 //
 
 import Cocoa
+import ObjectMapper
 
 class V2rayMgr {
     
@@ -67,6 +68,11 @@ class V2rayMgr {
     func load() {
         DispatchQueue.global().async { [weak self] in
             guard let self = self else { return }
+            let json = Bundle.main.path(forResource: "template", ofType: "json")
+            let data = try! Data(contentsOf: URL(fileURLWithPath: json!))
+            
+            let xxx = try! JSONSerialization.jsonObject(with: data, options: .mutableContainers)
+            let mmm = Mapper<Server>().map(JSONObject: xxx)
             let process = Process()
 //            process.arguments = ["-config"]
             process.executableURL = URL(fileURLWithPath: self.v2rayPath)

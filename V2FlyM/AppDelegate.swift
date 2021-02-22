@@ -34,6 +34,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     let currentMode = BehaviorSubject<Mode>(value: Mode.config)
     
+    var serverItems: [NSMenuItem]?
+    
     enum Mode: String {
         case config = "Config"
         case proxy = "Proxy"
@@ -62,6 +64,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         statusItem.menu = menu
 
+        ServersManager().list.subscribe(onNext: { [weak self] servers in
+            guard let self = self else { return }
+            
+            self.serverItems?.forEach({
+                self.menu.removeItem($0)
+            })
+            
+            let item = NSMenuItem(title: "server.outbounds?.first?.tag", action: nil, keyEquivalent: "")
+            self.serverItems?.append(item)
+            self.menu.addItem(item)
+
+        }).disposed(by: disposeBag)
+        
         Observable.combineLatest(toggleV2ray, currentMode).observe(on: MainScheduler.asyncInstance).subscribe { [weak self] isLoad, mode in
             guard let self = self else { return }
             guard isLoad else {
