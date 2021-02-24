@@ -18,11 +18,6 @@ class ImportScene: NSViewController {
     
 }
 
-extension NSPasteboard.PasteboardType {
-    static let nsURL = NSPasteboard.PasteboardType("NSURL")
-    static let nsFilenames = NSPasteboard.PasteboardType("NSFilenamesPboardType")
-}
-
 class ImportSceneView: NSView {
     
     override init(frame frameRect: NSRect) {
@@ -37,7 +32,7 @@ class ImportSceneView: NSView {
     }
     
     private func setUp() {
-        registerForDraggedTypes([.nsFilenames, .nsURL, .string])
+        registerForDraggedTypes([.fileURL])
     }
     
     override func draggingEntered(_ sender: NSDraggingInfo) -> NSDragOperation {
@@ -47,6 +42,9 @@ class ImportSceneView: NSView {
     }
     
     override func draggingEnded(_ sender: NSDraggingInfo) {
-
+        if let url = NSURL(from: sender.draggingPasteboard) as URL?, let string = try? String(contentsOf: url, encoding: .utf8) {
+            let json = Mapper<Server>().map(JSONString: string)
+            let file = ""
+        }
     }
 }
