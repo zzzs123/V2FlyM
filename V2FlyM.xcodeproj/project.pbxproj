@@ -14,6 +14,7 @@
 		39107ACE25DD719800A1DC4B /* PreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39107ACD25DD719800A1DC4B /* PreferenceViewController.swift */; };
 		3924D9CD25E00329005BEA87 /* proxy_conf in Resources */ = {isa = PBXBuildFile; fileRef = 3904297F25DEBFE500B9B539 /* proxy_conf */; };
 		3924D9DD25E00662005BEA87 /* V2rayMgr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3924D9DC25E00662005BEA87 /* V2rayMgr.swift */; };
+		396729EB25E7EAD3006B7139 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396729EA25E7EAD3006B7139 /* Constants.swift */; };
 		39BFA2EA25E3EAFA000D90A5 /* template.json in Resources */ = {isa = PBXBuildFile; fileRef = 39E63D6A25E2927B00B4EDA1 /* template.json */; };
 		39BFA2EE25E40A93000D90A5 /* ServersManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BFA2ED25E40A93000D90A5 /* ServersManager.swift */; };
 		39E63D5225E28FE000B4EDA1 /* Mux.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E63D3C25E28FE000B4EDA1 /* Mux.swift */; };
@@ -77,6 +78,7 @@
 		39107AC925DD711F00A1DC4B /* PreferenceWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceWindowController.swift; sourceTree = "<group>"; };
 		39107ACD25DD719800A1DC4B /* PreferenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceViewController.swift; sourceTree = "<group>"; };
 		3924D9DC25E00662005BEA87 /* V2rayMgr.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = V2rayMgr.swift; sourceTree = "<group>"; };
+		396729EA25E7EAD3006B7139 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		39BFA2ED25E40A93000D90A5 /* ServersManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServersManager.swift; sourceTree = "<group>"; };
 		39E63D3C25E28FE000B4EDA1 /* Mux.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mux.swift; sourceTree = "<group>"; };
 		39E63D3D25E28FE000B4EDA1 /* WsSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WsSettings.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 				39E8622B25D53D5D00A9A241 /* AppDelegate.swift */,
 				3924D9DC25E00662005BEA87 /* V2rayMgr.swift */,
 				39BFA2ED25E40A93000D90A5 /* ServersManager.swift */,
+				396729EA25E7EAD3006B7139 /* Constants.swift */,
 				39107AC925DD711F00A1DC4B /* PreferenceWindowController.swift */,
 				39107ACD25DD719800A1DC4B /* PreferenceViewController.swift */,
 				E19020A225E1136D00F6AF28 /* ImportScene.swift */,
@@ -393,6 +396,7 @@
 				39E63D6525E28FE000B4EDA1 /* TcpSettings.swift in Sources */,
 				39E63D5F25E28FE000B4EDA1 /* StreamSettings.swift in Sources */,
 				39E63D5525E28FE000B4EDA1 /* KcpSettings.swift in Sources */,
+				396729EB25E7EAD3006B7139 /* Constants.swift in Sources */,
 				39E63D5425E28FE000B4EDA1 /* Users.swift in Sources */,
 				39E63D6725E28FE000B4EDA1 /* DsSettings.swift in Sources */,
 				39E63D6225E28FE000B4EDA1 /* Outbounds.swift in Sources */,

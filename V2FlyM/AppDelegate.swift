@@ -21,20 +21,30 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     let menu = NSMenu(title: "Menu")
     
-    let flagItem = NSMenuItem(title: "", action: nil, keyEquivalent: "")
+    lazy var flagItem: NSMenuItem = {
+        let val = NSMenuItem(title: "", action: nil, keyEquivalent: "")
+        val.isEnabled = false
+        return val
+    }()
+    
     let toggleItem = NSMenuItem(title: "", action: #selector(toggle), keyEquivalent: "")
     
     let quitItem = NSMenuItem(title: "Quit", action: #selector(quit), keyEquivalent: "")
         
+    lazy var modeItem: NSMenuItem = {
+        let val = NSMenuItem(title: "Routing", action: nil, keyEquivalent: "")
+        val.isEnabled = false
+        return val
+    }()
 
-    let modeItem = NSMenuItem(title: "Routing", action: nil, keyEquivalent: "")
     let configItem = NSMenuItem(title: "Config", action: #selector(routing), keyEquivalent: "")
     let proxyItem = NSMenuItem(title: "Proxy", action: #selector(routing), keyEquivalent: "")
     let directItem = NSMenuItem(title: "Direct", action: #selector(routing), keyEquivalent: "")
+    
+    var serverItems: [NSMenuItem]?
 
     let currentMode = BehaviorSubject<Mode>(value: Mode.config)
     
-    var serverItems: [NSMenuItem]?
     
     enum Mode: String {
         case config = "Config"
@@ -49,34 +59,35 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         self.statusItem.button?.imageHugsTitle = false
         self.statusItem.button?.imagePosition = .imageLeading
 
-        flagItem.isEnabled = false
-        modeItem.isEnabled = false
-
-        menu.items.append(flagItem)
-        menu.items.append(toggleItem)
-        menu.items.append(NSMenuItem.separator())
-        menu.items.append(modeItem)
-        menu.items.append(configItem)
-        menu.items.append(proxyItem)
-        menu.items.append(directItem)
-        menu.items.append(NSMenuItem.separator())
-        menu.items.append(quitItem)
+        menu.items = [flagItem,
+                      toggleItem,
+                      NSMenuItem.separator(),
+                      modeItem,
+                      configItem,
+                      proxyItem,
+                      directItem,
+                      NSMenuItem.separator(),
+                      quitItem]
 
         statusItem.menu = menu
 
-        ServersManager().list.subscribe(onNext: { [weak self] servers in
-            guard let self = self else { return }
-            
-            self.serverItems?.forEach({
-                self.menu.removeItem($0)
-            })
-            
-            let item = NSMenuItem(title: "server.outbounds?.first?.tag", action: nil, keyEquivalent: "")
-            self.serverItems?.append(item)
-            self.menu.addItem(item)
-
-        }).disposed(by: disposeBag)
-        
+        ServersManager.shared.list.skip(1)
+            .map { [NSMenuItem(title: $0.debugDescription, action: nil, keyEquivalent: "")] }
+            .subscribe(onNext: {
+                var items = [self.flagItem,
+                             self.toggleItem,
+                             NSMenuItem.separator(),
+                             self.modeItem,
+                             self.configItem,
+                             self.proxyItem,
+                             self.directItem,
+                             NSMenuItem.separator(),
+                             NSMenuItem.separator(),
+                             self.quitItem]
+                items.insert(contentsOf: $0, at: 8)
+                self.menu.items = items
+            }).disposed(by: disposeBag)
+                
         Observable.combineLatest(toggleV2ray, currentMode).observe(on: MainScheduler.asyncInstance).subscribe { [weak self] isLoad, mode in
             guard let self = self else { return }
             guard isLoad else {

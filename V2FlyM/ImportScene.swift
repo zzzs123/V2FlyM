@@ -45,6 +45,7 @@ class ImportSceneView: NSView {
         if let url = NSURL(from: sender.draggingPasteboard) as URL?, let string = try? String(contentsOf: url, encoding: .utf8) {
             let json = Mapper<Server>().map(JSONString: string)
             let file = ""
+            ServersManager.shared.list.onNext([])
         }
     }
 }
