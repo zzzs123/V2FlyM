@@ -14,7 +14,7 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 import Foundation
 import ObjectMapper
 
-struct Server : Mappable {
+struct Configuration : Mappable {
 	var log : Log?
 	var dns : Dns?
 	var routing : Routing?

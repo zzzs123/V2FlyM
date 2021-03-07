@@ -13,10 +13,11 @@
 		39107ACA25DD711F00A1DC4B /* PreferenceWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39107AC925DD711F00A1DC4B /* PreferenceWindowController.swift */; };
 		39107ACE25DD719800A1DC4B /* PreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39107ACD25DD719800A1DC4B /* PreferenceViewController.swift */; };
 		3924D9CD25E00329005BEA87 /* proxy_conf in Resources */ = {isa = PBXBuildFile; fileRef = 3904297F25DEBFE500B9B539 /* proxy_conf */; };
-		3924D9DD25E00662005BEA87 /* V2rayMgr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3924D9DC25E00662005BEA87 /* V2rayMgr.swift */; };
+		3924D9DD25E00662005BEA87 /* V2rayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3924D9DC25E00662005BEA87 /* V2rayManager.swift */; };
 		396729EB25E7EAD3006B7139 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396729EA25E7EAD3006B7139 /* Constants.swift */; };
 		39BFA2EA25E3EAFA000D90A5 /* template.json in Resources */ = {isa = PBXBuildFile; fileRef = 39E63D6A25E2927B00B4EDA1 /* template.json */; };
 		39BFA2EE25E40A93000D90A5 /* ServersManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BFA2ED25E40A93000D90A5 /* ServersManager.swift */; };
+		39C6CF4E25F3DBA5003FFDA3 /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C6CF4D25F3DBA5003FFDA3 /* Server.swift */; };
 		39E63D5225E28FE000B4EDA1 /* Mux.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E63D3C25E28FE000B4EDA1 /* Mux.swift */; };
 		39E63D5325E28FE000B4EDA1 /* WsSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E63D3D25E28FE000B4EDA1 /* WsSettings.swift */; };
 		39E63D5425E28FE000B4EDA1 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E63D3E25E28FE000B4EDA1 /* Users.swift */; };
@@ -27,7 +28,7 @@
 		39E63D5925E28FE000B4EDA1 /* Inbounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E63D4325E28FE000B4EDA1 /* Inbounds.swift */; };
 		39E63D5A25E28FE000B4EDA1 /* Headers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E63D4425E28FE000B4EDA1 /* Headers.swift */; };
 		39E63D5B25E28FE000B4EDA1 /* Vnext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E63D4525E28FE000B4EDA1 /* Vnext.swift */; };
-		39E63D5C25E28FE000B4EDA1 /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E63D4625E28FE000B4EDA1 /* Server.swift */; };
+		39E63D5C25E28FE000B4EDA1 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E63D4625E28FE000B4EDA1 /* Configuration.swift */; };
 		39E63D5D25E28FE000B4EDA1 /* QuicSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E63D4725E28FE000B4EDA1 /* QuicSettings.swift */; };
 		39E63D5E25E28FE000B4EDA1 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E63D4825E28FE000B4EDA1 /* Header.swift */; };
 		39E63D5F25E28FE000B4EDA1 /* StreamSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E63D4925E28FE000B4EDA1 /* StreamSettings.swift */; };
@@ -43,6 +44,7 @@
 		39E8623025D53D5D00A9A241 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39E8622F25D53D5D00A9A241 /* Assets.xcassets */; };
 		39E8623325D53D5D00A9A241 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39E8623225D53D5D00A9A241 /* Preview Assets.xcassets */; };
 		39E8623625D53D5D00A9A241 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39E8623425D53D5D00A9A241 /* Main.storyboard */; };
+		39F381B325F4C1F800C61406 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F381B225F4C1F800C61406 /* PersistenceManager.swift */; };
 		A86DD06CA2304B1FE869FDE9 /* Pods_V2FlyM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8957840FD15712AA50C0AC3 /* Pods_V2FlyM.framework */; };
 		E19020A425E1136D00F6AF28 /* ImportScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19020A225E1136D00F6AF28 /* ImportScene.swift */; };
 		E19020A525E1136D00F6AF28 /* ImportScene.xib in Resources */ = {isa = PBXBuildFile; fileRef = E19020A325E1136D00F6AF28 /* ImportScene.xib */; };
@@ -77,9 +79,10 @@
 		39107A8525DD252500A1DC4B /* v2ray-core */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "v2ray-core"; sourceTree = "<group>"; };
 		39107AC925DD711F00A1DC4B /* PreferenceWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceWindowController.swift; sourceTree = "<group>"; };
 		39107ACD25DD719800A1DC4B /* PreferenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceViewController.swift; sourceTree = "<group>"; };
-		3924D9DC25E00662005BEA87 /* V2rayMgr.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = V2rayMgr.swift; sourceTree = "<group>"; };
+		3924D9DC25E00662005BEA87 /* V2rayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = V2rayManager.swift; sourceTree = "<group>"; };
 		396729EA25E7EAD3006B7139 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		39BFA2ED25E40A93000D90A5 /* ServersManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServersManager.swift; sourceTree = "<group>"; };
+		39C6CF4D25F3DBA5003FFDA3 /* Server.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
 		39E63D3C25E28FE000B4EDA1 /* Mux.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mux.swift; sourceTree = "<group>"; };
 		39E63D3D25E28FE000B4EDA1 /* WsSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WsSettings.swift; sourceTree = "<group>"; };
 		39E63D3E25E28FE000B4EDA1 /* Users.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
@@ -90,7 +93,7 @@
 		39E63D4325E28FE000B4EDA1 /* Inbounds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Inbounds.swift; sourceTree = "<group>"; };
 		39E63D4425E28FE000B4EDA1 /* Headers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Headers.swift; sourceTree = "<group>"; };
 		39E63D4525E28FE000B4EDA1 /* Vnext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vnext.swift; sourceTree = "<group>"; };
-		39E63D4625E28FE000B4EDA1 /* Server.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
+		39E63D4625E28FE000B4EDA1 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		39E63D4725E28FE000B4EDA1 /* QuicSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuicSettings.swift; sourceTree = "<group>"; };
 		39E63D4825E28FE000B4EDA1 /* Header.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		39E63D4925E28FE000B4EDA1 /* StreamSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamSettings.swift; sourceTree = "<group>"; };
@@ -110,6 +113,7 @@
 		39E8623525D53D5D00A9A241 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		39E8623725D53D5D00A9A241 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		39E8623825D53D5D00A9A241 /* V2FlyM.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = V2FlyM.entitlements; sourceTree = "<group>"; };
+		39F381B225F4C1F800C61406 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		63A70DEBA0D1F1CFF652B932 /* Pods-V2FlyM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-V2FlyM.release.xcconfig"; path = "Target Support Files/Pods-V2FlyM/Pods-V2FlyM.release.xcconfig"; sourceTree = "<group>"; };
 		7B7F2F87E6E76EFE9F758B41 /* Pods-V2FlyM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-V2FlyM.debug.xcconfig"; path = "Target Support Files/Pods-V2FlyM/Pods-V2FlyM.debug.xcconfig"; sourceTree = "<group>"; };
 		E19020A225E1136D00F6AF28 /* ImportScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportScene.swift; sourceTree = "<group>"; };
@@ -144,7 +148,7 @@
 			path = proxy_conf;
 			sourceTree = "<group>";
 		};
-		39E63D3B25E28FE000B4EDA1 /* ServerMapper */ = {
+		39E63D3B25E28FE000B4EDA1 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
 				39E63D3C25E28FE000B4EDA1 /* Mux.swift */,
@@ -157,7 +161,7 @@
 				39E63D4325E28FE000B4EDA1 /* Inbounds.swift */,
 				39E63D4425E28FE000B4EDA1 /* Headers.swift */,
 				39E63D4525E28FE000B4EDA1 /* Vnext.swift */,
-				39E63D4625E28FE000B4EDA1 /* Server.swift */,
+				39E63D4625E28FE000B4EDA1 /* Configuration.swift */,
 				39E63D4725E28FE000B4EDA1 /* QuicSettings.swift */,
 				39E63D4825E28FE000B4EDA1 /* Header.swift */,
 				39E63D4925E28FE000B4EDA1 /* StreamSettings.swift */,
@@ -170,7 +174,7 @@
 				39E63D5025E28FE000B4EDA1 /* TlsSettings.swift */,
 				39E63D5125E28FE000B4EDA1 /* DsSettings.swift */,
 			);
-			path = ServerMapper;
+			path = Configuration;
 			sourceTree = "<group>";
 		};
 		39E8621F25D53D5D00A9A241 = {
@@ -196,10 +200,12 @@
 		39E8622A25D53D5D00A9A241 /* V2FlyM */ = {
 			isa = PBXGroup;
 			children = (
-				39E63D3B25E28FE000B4EDA1 /* ServerMapper */,
+				39E63D3B25E28FE000B4EDA1 /* Configuration */,
 				39E8622B25D53D5D00A9A241 /* AppDelegate.swift */,
-				3924D9DC25E00662005BEA87 /* V2rayMgr.swift */,
+				3924D9DC25E00662005BEA87 /* V2rayManager.swift */,
 				39BFA2ED25E40A93000D90A5 /* ServersManager.swift */,
+				39F381B225F4C1F800C61406 /* PersistenceManager.swift */,
+				39C6CF4D25F3DBA5003FFDA3 /* Server.swift */,
 				396729EA25E7EAD3006B7139 /* Constants.swift */,
 				39107AC925DD711F00A1DC4B /* PreferenceWindowController.swift */,
 				39107ACD25DD719800A1DC4B /* PreferenceViewController.swift */,
@@ -401,7 +407,9 @@
 				39E63D6725E28FE000B4EDA1 /* DsSettings.swift in Sources */,
 				39E63D6225E28FE000B4EDA1 /* Outbounds.swift in Sources */,
 				39E63D6325E28FE000B4EDA1 /* Routing.swift in Sources */,
+				39C6CF4E25F3DBA5003FFDA3 /* Server.swift in Sources */,
 				39E63D6125E28FE000B4EDA1 /* Rules.swift in Sources */,
+				39F381B325F4C1F800C61406 /* PersistenceManager.swift in Sources */,
 				39E63D5625E28FE000B4EDA1 /* Log.swift in Sources */,
 				39E63D5225E28FE000B4EDA1 /* Mux.swift in Sources */,
 				39E63D5A25E28FE000B4EDA1 /* Headers.swift in Sources */,
@@ -417,9 +425,9 @@
 				39E63D6425E28FE000B4EDA1 /* Sockopt.swift in Sources */,
 				39E63D5B25E28FE000B4EDA1 /* Vnext.swift in Sources */,
 				39E63D5325E28FE000B4EDA1 /* WsSettings.swift in Sources */,
-				39E63D5C25E28FE000B4EDA1 /* Server.swift in Sources */,
+				39E63D5C25E28FE000B4EDA1 /* Configuration.swift in Sources */,
 				39E63D6625E28FE000B4EDA1 /* TlsSettings.swift in Sources */,
-				3924D9DD25E00662005BEA87 /* V2rayMgr.swift in Sources */,
+				3924D9DD25E00662005BEA87 /* V2rayManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

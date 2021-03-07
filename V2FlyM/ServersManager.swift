@@ -12,16 +12,20 @@ import ObjectMapper
 class ServersManager {
     static let shared = ServersManager()
 
-    private var servers = [Server]()
+    private var currentServer: ServerProtocol?
     
-    let list = BehaviorSubject<[Server?]>(value: [])
+    let currentServerSubject = BehaviorSubject<Data?>(value: nil)
+
+    private var servers = [ServerProtocol]()
+
+    let list = BehaviorSubject<[ServerProtocol?]>(value: [])
     
-    func load() {
-        if let val = UserDefaults.standard.array(forKey: Constants.KEY_SERVERS) as? [[String: Any]], val.count > 0 {
-            let s = val.map {
-                Mapper<Server>().map(JSON: $0)
-            }
-            list.onNext(s)
-        }
-    }
+//    func load() {
+//        if let val = UserDefaults.standard.array(forKey: Constants.KEY_SERVERS) as? [[String: Any]], val.count > 0 {
+//            let s = val.map {
+//                Mapper<Server>().map(JSON: $0)
+//            }
+//            list.onNext(s)
+//        }
+//    }
 }

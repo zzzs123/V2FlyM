@@ -14,7 +14,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
 
-    let v2rayMgr = V2rayMgr.shared
+    let v2rayMgr = V2rayManager.shared
     
     let disposeBag = DisposeBag()
     let toggleV2ray = BehaviorSubject(value: false)

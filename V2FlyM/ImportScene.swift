@@ -42,10 +42,11 @@ class ImportSceneView: NSView {
     }
     
     override func draggingEnded(_ sender: NSDraggingInfo) {
-        if let url = NSURL(from: sender.draggingPasteboard) as URL?, let string = try? String(contentsOf: url, encoding: .utf8) {
-            let json = Mapper<Server>().map(JSONString: string)
-            let file = ""
-            ServersManager.shared.list.onNext([])
+        if let url = NSURL(from: sender.draggingPasteboard) as URL?, let string = try? String(contentsOf: url, encoding: .utf8), let data = try? Data(contentsOf: url){
+//            let json = Mapper<Server>().map(JSONString: string)
+//            let file = ""
+//            if let data = Data(string)
+            ServersManager.shared.currentServerSubject.onNext(data)
         }
     }
 }

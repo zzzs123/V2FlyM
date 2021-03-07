@@ -15,7 +15,8 @@ import SystemConfiguration
 //    ProcessInfo.arguments: ["/Users/sillyb/Library/Developer/Xcode/DerivedData/V2FlyM-advtynsgkqfgvaftmfktvgoyrbct/Build/Products/Debug/proxy_conf"]
 //    CommandLine.arguments: ["./proxy_conf"]
 
-let arguments = CommandLine.arguments.dropFirst()
+let arguments = CommandLine.arguments
+
 if arguments.contains(where: { $0 == "--help" || $0 == "-h" }) {
     print(
       """
@@ -41,16 +42,25 @@ if arguments.contains(where: { $0 == "--help" || $0 == "-h" }) {
     exit(EXIT_SUCCESS)
 }
 
-if arguments.count < 4 {
+if CommandLine.argc < 5 {
     print("arguments count less than 4")
     exit(EXIT_SUCCESS)
 }
+print("arguments: \(arguments)")
+print("arguments: \(arguments)")
 
 //config requires pacURL,
-let mode = arguments.first
-let pacURL = arguments[1]
-let httpPort = arguments[2]
-let socksPort = arguments.last
+let mode = arguments[1]
+print("mode: \(mode)")
+
+let pacURL = arguments[2]
+print("pacURL: \(pacURL)")
+
+let httpPort = arguments[3]
+print("httpPort: \(httpPort)")
+
+let socksPort = arguments[4]
+print("socksPort: \(socksPort)")
 
 var authRef: AuthorizationRef?
 let authFlags: AuthorizationFlags = [.interactionAllowed, .extendRights, .preAuthorize]
@@ -80,21 +90,21 @@ for (key, val) in plists {
         let prefsPath = "/\(kSCPrefNetworkServices)/\(key)/\(kSCEntNetProxies)" as CFString
         print("prefsPath: \(prefsPath)")
         if mode == "config" {
-            proxies[kCFNetworkProxiesProxyAutoConfigURLString] = pacURL
-            proxies[kCFNetworkProxiesProxyAutoConfigEnable] = 1
+            proxies[kCFNetworkProxiesProxyAutoConfigURLString] = Int(pacURL)! as NSNumber
+            proxies[kCFNetworkProxiesProxyAutoConfigEnable] = NSNumber(1)
             SCPreferencesPathSetValue(prefs, prefsPath, proxies as CFDictionary)
         } else if mode == "proxy" {
-            proxies[kCFNetworkProxiesSOCKSProxy] = "127.0.0.1" //socks5ListenAddress
-            proxies[kCFNetworkProxiesSOCKSPort] = socksPort
+            proxies[kCFNetworkProxiesSOCKSProxy] = "127.0.0.1"// as AnyObject //socks5ListenAddress
+            proxies[kCFNetworkProxiesSOCKSPort] = Int(socksPort)!
             proxies[kCFNetworkProxiesSOCKSEnable] = 1
 
-            proxies[kCFNetworkProxiesHTTPProxy] = "127.0.0.1"
-            proxies[kCFNetworkProxiesHTTPPort] = httpPort
-            proxies[kCFNetworkProxiesHTTPEnable] = 1
+            proxies[kCFNetworkProxiesHTTPProxy] = "127.0.0.1" as AnyObject
+            proxies[kCFNetworkProxiesHTTPPort] = Int(httpPort)! as NSNumber
+            proxies[kCFNetworkProxiesHTTPEnable] = NSNumber(1)
 
-            proxies[kCFNetworkProxiesHTTPSProxy] = "127.0.0.1"
-            proxies[kCFNetworkProxiesHTTPSPort] = httpPort
-            proxies[kCFNetworkProxiesHTTPSEnable] = 1
+            proxies[kCFNetworkProxiesHTTPSProxy] = "127.0.0.1" as AnyObject
+            proxies[kCFNetworkProxiesHTTPSPort] = Int(httpPort)! as NSNumber
+            proxies[kCFNetworkProxiesHTTPSEnable] = NSNumber(1)
 
             SCPreferencesPathSetValue(prefs, prefsPath, proxies as CFDictionary)
         } else if mode == "direct" {
@@ -108,9 +118,10 @@ for (key, val) in plists {
         SCPreferencesApplyChanges(prefs);
         SCPreferencesSynchronize(prefs);
 
+        print("proxies: \(proxies)")
         print("set mode: \(String(describing: mode))")
-        
-        exit(EXIT_SUCCESS)
+
+//        exit(EXIT_SUCCESS) //keng
     }
 
 }
